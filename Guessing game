@@ -1,0 +1,56 @@
+import random
+
+print("Welcome to the Guessing Game")
+
+Continue = "y"
+
+def NumberGuessingGame():
+    integer = 1
+    print("You have 10 Chances to guess the correct value")
+    print("The value is in the range 1-100 inclusive ")
+    print("")
+    value = random.randint(1,100)
+    
+    while integer < 11:
+        guessval = input("Enter Your Guess value : ")
+         
+        if guessval.lower() == "exit":
+            print("Thank you for Playing ... Bye")
+            break
+
+        guessval=int(guessval)        
+
+        if guessval == value:
+            print("You Guessed the Correct Value")
+            print("As a reward you get a heart ❤️")
+            print("It took you ", integer  , " tries")
+            break
+
+        elif guessval < value-5:
+             print("Your Value is too low")
+
+        elif guessval > value+5:
+            print("Your value is too high")
+
+        elif guessval >= value-5 and guessval <= value+5 :
+             print("Your Value is close")
+
+        if guessval == "exit":
+            break
+
+        if integer == 10:
+            print("You Have Run Out Of Guesses")
+            print("The Answer was ", value, "≡(▔﹏▔)≡")
+            print("")
+            break
+
+        integer = integer + 1
+        print("")
+
+
+while Continue.lower() == "y":
+     NumberGuessingGame()
+     Continue = str(input("Enter 'y' to try again and enter 'n' to stop : "))
+     if Continue.lower() == "n":
+        print("Thank you for Playing ... Bye")
+    
