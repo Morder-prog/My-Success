@@ -1,0 +1,29 @@
+class Solution(object):
+    def numEquivDominoPairs(self, dominoes):
+        """
+        :type dominoes: List[List[int]]
+        :rtype: int
+        """
+        
+        num_combos = len(dominoes)
+        pairs = 0
+
+        for x in range(0,num_combos-1):
+            a, b = dominoes[x]
+            start_pos = x
+            end = False
+
+            while end == False:
+
+                c , d = dominoes[start_pos + 1]
+
+                if (a == c and b == d) or (a == d and b == c):
+                    pairs +=1
+
+                start_pos += 1
+
+                if start_pos == num_combos-1:
+                    End = True
+                    break
+                    
+        return pairs
