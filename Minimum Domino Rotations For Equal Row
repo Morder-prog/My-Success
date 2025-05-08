@@ -1,0 +1,27 @@
+class Solution(object):
+    def minDominoRotations(self, tops, bottoms):
+        
+        
+        result = float('inf')
+
+        for val in range(1,7):
+            top_swap = 0
+            bottom_swap = 0
+            valid = True
+
+            for t,b in zip(tops,bottoms):
+                if t != val and b != val:
+                    valid = False
+                    break
+                
+                if t != val:
+                    top_swap += 1
+                
+                if b != val:
+                    bottom_swap += 1
+            if valid:
+                result = min(result,top_swap,bottom_swap)
+        return -1 if result == float('inf') else result
+
+
+        
